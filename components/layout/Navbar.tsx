@@ -36,7 +36,7 @@ export default function Navbar() {
     return (
         <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/50 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
             }`}>
-            <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+            <div className="relative z-50 container mx-auto px-6 py-4 flex items-center justify-between">
 
                 {/* Logo */}
                 <Link href="/" className="text-2xl font-bold tracking-tighter text-white">
@@ -84,20 +84,21 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu Overlay */}
             {isOpen && (
-                <div className="md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl border-b border-white/10 p-6 flex flex-col space-y-4">
-                    <MobileLink href="/services">Services</MobileLink>
-                    <MobileLink href="/shop">Shop</MobileLink>
-                    <MobileLink href="/gallery">Gallery</MobileLink>
-                    <MobileLink href="/about">Our Story</MobileLink>
-                    <div className="pt-4 border-t border-white/10 flex flex-col space-y-3">
-                        {user ? (
-                            <button onClick={handleSignOut} className="text-left text-gray-300">Sign Out</button>
-                        ) : (
-                            <MobileLink href="/login">Sign In</MobileLink>
-                        )}
-                    </div>
+                <div className="md:hidden fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col justify-center items-center space-y-8 animate-in fade-in duration-200">
+                    <MobileLink href="/services" onClick={() => setIsOpen(false)}>Services</MobileLink>
+                    <MobileLink href="/shop" onClick={() => setIsOpen(false)}>Shop</MobileLink>
+                    <MobileLink href="/gallery" onClick={() => setIsOpen(false)}>Gallery</MobileLink>
+                    <MobileLink href="/about" onClick={() => setIsOpen(false)}>Our Story</MobileLink>
+
+                    <div className="w-16 h-1 bg-white/10 rounded-full my-4" />
+
+                    {user ? (
+                        <button onClick={() => { handleSignOut(); setIsOpen(false); }} className="text-xl text-gray-400 hover:text-white">Sign Out</button>
+                    ) : (
+                        <Link href="/login" onClick={() => setIsOpen(false)} className="text-xl text-purple-400 font-bold">Sign In</Link>
+                    )}
                 </div>
             )}
         </nav>
@@ -112,9 +113,9 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
     );
 }
 
-function MobileLink({ href, children }: { href: string; children: React.ReactNode }) {
+function MobileLink({ href, onClick, children }: { href: string; onClick: () => void; children: React.ReactNode }) {
     return (
-        <Link href={href} className="text-lg font-medium text-white block">
+        <Link href={href} onClick={onClick} className="text-2xl font-bold text-white hover:text-purple-400 transition-colors">
             {children}
         </Link>
     );
