@@ -1,5 +1,6 @@
 import ParallaxBackground from "@/components/layout/ParallaxBackground";
 import { GlassPanel } from "@/components/ui/GlassPanel";
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -14,21 +15,21 @@ export default function Home() {
             Premium cuts, exclusive products, and a touch of luxury.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl mt-12">
-            <GlassPanel className="hover:scale-105 transition-transform duration-300">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <GlassPanel className="p-8 hover:scale-105 transition duration-500 cursor-pointer group">
               <h2 className="text-2xl font-bold text-white mb-2">Book an Appointment</h2>
-              <p className="text-gray-300 mb-4">Secure your exclusive session with our top stylists.</p>
-              <button className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-purple-100 transition">
+              <p className="text-gray-300 mb-6">Secure your exclusive session with our top stylists.</p>
+              <Link href="/services" className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-purple-100 transition shadow-[0_0_20px_rgba(255,255,255,0.3)]">
                 Book Now
-              </button>
+              </Link>
             </GlassPanel>
 
-            <GlassPanel className="hover:scale-105 transition-transform duration-300">
+            <GlassPanel className="p-8 hover:scale-105 transition duration-500 cursor-pointer group">
               <h2 className="text-2xl font-bold text-white mb-2">Shop Products</h2>
-              <p className="text-gray-300 mb-4">Curated collection of elite hair care essentials.</p>
-              <button className="bg-transparent border border-white text-white px-6 py-2 rounded-full font-semibold hover:bg-white/10 transition">
+              <p className="text-gray-300 mb-6">Curated collection of elite hair care essentials.</p>
+              <Link href="/shop" className="px-8 py-3 bg-transparent border border-white text-white font-bold rounded-full hover:bg-white hover:text-black transition shadow-[0_0_20px_rgba(255,255,255,0.1)]">
                 Visit Shop
-              </button>
+              </Link>
             </GlassPanel>
           </div>
         </div>

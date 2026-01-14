@@ -24,15 +24,15 @@ export default function ParallaxBackground({
                 style={{ y: backgroundY }}
                 className="absolute inset-0 z-0 h-[120vh]"
             >
-                {/* Real HD Background */}
+                {/* Real HD Background - Luxury Dark Salon */}
                 <div
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: "url('/hero-bg.png')" }}
+                    style={{ backgroundImage: "url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=2670&auto=format&fit=crop')" }}
                 />
-                {/* Dark Overlay for Text Readability */}
-                <div className="absolute inset-0 bg-black/50" />
+                {/* Darker Overlay for Premium Text Contrast */}
+                <div className="absolute inset-0 bg-black/60" />
 
-                {/* Noise Texture */}
+                {/* Noise Texture for Texture/Depth */}
                 <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay"></div>
             </motion.div>
 
