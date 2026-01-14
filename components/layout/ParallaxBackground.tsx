@@ -22,14 +22,18 @@ export default function ParallaxBackground({
             {/* Layer 0: Base Background (Parallax) */}
             <motion.div
                 style={{ y: backgroundY }}
-                className="absolute inset-0 z-0 h-[120vh]" // Taller than screen for parallax
+                className="absolute inset-0 z-0 h-[120vh]"
             >
+                {/* Real HD Background */}
                 <div
-                    className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-black opacity-80"
-                // Start with a CSS gradient, replace with <Image> or <video> later
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{ backgroundImage: "url('https://images.unsplash.com/photo-1560066984-12186d30b7e7?q=80&w=2574&auto=format&fit=crop')" }}
                 />
-                {/* Placeholder for HD Texture */}
-                <div className="absolute inset-0 opacity-30 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay"></div>
+                {/* Dark Overlay for Text Readability */}
+                <div className="absolute inset-0 bg-black/50" />
+
+                {/* Noise Texture */}
+                <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay"></div>
             </motion.div>
 
             {/* Layer 1: Atmospheric Overlay */}
