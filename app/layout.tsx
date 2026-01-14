@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import StructuredData from "@/components/seo/StructuredData";
 
 export const metadata: Metadata = {
   title: "LuxeHair | Elite Salon & Shop",
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <StructuredData />
         <Navbar />
         {children}
         <Footer />
