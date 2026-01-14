@@ -27,7 +27,7 @@ export default function ParallaxBackground({
                 {/* Real HD Background */}
                 <div
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: "url('https://images.unsplash.com/photo-1560066984-12186d30b7e7?q=80&w=2574&auto=format&fit=crop')" }}
+                    style={{ backgroundImage: "url('/hero-bg.png')" }}
                 />
                 {/* Dark Overlay for Text Readability */}
                 <div className="absolute inset-0 bg-black/50" />
