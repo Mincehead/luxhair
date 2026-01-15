@@ -1,6 +1,3 @@
-import { GlassPanel } from "@/components/ui/GlassPanel";
-import Link from "next/link";
-import Image from "next/image";
 
 'use client';
 
