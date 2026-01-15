@@ -27,7 +27,7 @@ export default function ParallaxBackground({
                 {/* Real HD Background - Luxury Dark Salon */}
                 <div
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: "url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=2670&auto=format&fit=crop')" }}
+                    style={{ backgroundImage: "url('/bg-salon.png')" }}
                 />
                 {/* Darker Overlay for Premium Text Contrast */}
                 <div className="absolute inset-0 bg-black/60" />
