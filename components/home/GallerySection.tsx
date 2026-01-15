@@ -3,12 +3,14 @@ import Image from "next/image";
 
 export default function GallerySection() {
     const images = [
+    const images = [
         "https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&q=80&w=800", // Blonde Balayage
         "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&q=80&w=800", // Brunette Waves
         "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&q=80&w=800", // Vivid Pink/Purple
-        "https://images.unsplash.com/photo-1521590832896-76c0f2aee7eb?auto=format&fit=crop&q=80&w=800", // Precision Cut
+        "https://images.unsplash.com/photo-1634449571010-0238940f91a7?auto=format&fit=crop&q=80&w=800", // Precision Cut (Replacement)
         "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&q=80&w=800", // Styling Tools/Atmosphere
         "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&q=80&w=800"  // Salon Interior Detail
+    ];
     ];
 
     return (
