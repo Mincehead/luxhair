@@ -47,7 +47,8 @@ export default function Navbar() {
                 <div className="hidden md:flex items-center space-x-8">
                     <NavLink href="/services">Services</NavLink>
                     <NavLink href="/shop">Shop</NavLink>
-                    <NavLink href="/#gallery">Gallery</NavLink>
+                    <NavLink href="/gallery">Gallery</NavLink>
+                    <NavLink href="/bookings">Book Now</NavLink>
                     <NavLink href="/about">Our Story</NavLink>
                 </div>
 
@@ -89,7 +90,8 @@ export default function Navbar() {
                 <div className="md:hidden fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col justify-center items-center space-y-8 animate-in fade-in duration-200">
                     <MobileLink href="/services" onClick={() => setIsOpen(false)}>Services</MobileLink>
                     <MobileLink href="/shop" onClick={() => setIsOpen(false)}>Shop</MobileLink>
-                    <MobileLink href="/#gallery" onClick={() => setIsOpen(false)}>Gallery</MobileLink>
+                    <MobileLink href="/gallery" onClick={() => setIsOpen(false)}>Gallery</MobileLink>
+                    <MobileLink href="/bookings" onClick={() => setIsOpen(false)}>Book Now</MobileLink>
                     <MobileLink href="/about" onClick={() => setIsOpen(false)}>Our Story</MobileLink>
 
                     <div className="w-16 h-1 bg-white/10 rounded-full my-4" />

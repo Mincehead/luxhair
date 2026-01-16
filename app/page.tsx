@@ -1,10 +1,5 @@
 import ParallaxBackground from "@/components/layout/ParallaxBackground";
-import { GlassPanel } from "@/components/ui/GlassPanel";
 import Link from 'next/link';
-import AboutSection from "@/components/home/AboutSection";
-import ShopPreview from "@/components/home/ShopPreview";
-import BookingSection from "@/components/home/BookingSection";
-import GallerySection from "@/components/home/GallerySection";
 
 export default function Home() {
   return (
@@ -20,24 +15,24 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Link href="/services" className="px-10 py-4 bg-white text-black font-bold rounded-full hover:bg-purple-100 transition shadow-[0_0_20px_rgba(255,255,255,0.3)] text-lg">
+              <Link href="/bookings" className="px-10 py-4 bg-white text-black font-bold rounded-full hover:bg-purple-100 transition shadow-[0_0_20px_rgba(255,255,255,0.3)] text-lg">
                 Book Your Experience
               </Link>
               <Link href="/shop" className="px-10 py-4 bg-transparent border border-white text-white font-bold rounded-full hover:bg-white hover:text-black transition shadow-[0_0_20px_rgba(255,255,255,0.1)] text-lg">
                 View Collection
               </Link>
             </div>
+
+            <div className="mt-16 flex flex-wrap justify-center gap-8 text-gray-400 font-light tracking-wide">
+              <Link href="/about" className="hover:text-white transition-colors border-b border-transparent hover:border-white">Our Story</Link>
+              <span className="hidden sm:inline">•</span>
+              <Link href="/gallery" className="hover:text-white transition-colors border-b border-transparent hover:border-white">Gallery</Link>
+              <span className="hidden sm:inline">•</span>
+              <Link href="/services" className="hover:text-white transition-colors border-b border-transparent hover:border-white">Services</Link>
+            </div>
           </div>
         </div>
       </ParallaxBackground>
-
-      {/* Sections below the fold */}
-      <div className="relative z-20 bg-neutral-900 border-t border-white/5">
-        <AboutSection />
-        <ShopPreview />
-        <BookingSection />
-        <GallerySection />
-      </div>
     </main>
   );
 }

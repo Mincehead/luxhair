@@ -5,8 +5,10 @@ import { useRef } from 'react';
 
 export default function ParallaxBackground({
     children,
+    imageUrl = '/bg-salon.png'
 }: {
     children: React.ReactNode;
+    imageUrl?: string;
 }) {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -27,7 +29,7 @@ export default function ParallaxBackground({
                 {/* Real HD Background - Luxury Dark Salon */}
                 <div
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: "url('/bg-salon.png')" }}
+                    style={{ backgroundImage: `url('${imageUrl}')` }}
                 />
                 {/* Darker Overlay for Premium Text Contrast */}
                 <div className="absolute inset-0 bg-black/60" />
