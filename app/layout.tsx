@@ -6,8 +6,8 @@ import Footer from "@/components/layout/Footer";
 import StructuredData from "@/components/seo/StructuredData";
 
 export const metadata: Metadata = {
-  title: "LuxeHair | Elite Salon & Shop",
-  description: "Experience the art of dynamic realism in hair care.",
+  title: "Tóc Salon | The Art of Đẹp",
+  description: "Elite Vietnamese hair artistry. Experience the art of beauty.",
 };
 
 export default function RootLayout({

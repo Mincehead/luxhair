@@ -9,12 +9,11 @@ export default function Footer() {
 
                     {/* Brand */}
                     <div className="space-y-4">
-                        <Link href="/" className="text-2xl font-bold tracking-tighter">
-                            Luxe<span className="text-purple-400 font-serif italic">Hair</span>
+                        <Link href="/" className="text-3xl font-serif font-bold tracking-tighter">
+                            Tóc <span className="text-purple-400 italic font-light">Salon</span>
                         </Link>
                         <p className="text-gray-400 text-sm leading-relaxed">
-                            Redefining elegance through dynamic realism.
-                            The premier destination for elite hair care and styling.
+                            "The Art of Đẹp". Redefining elegance through Vietnamese hair artistry.
                         </p>
                     </div>
 
@@ -60,7 +59,7 @@ export default function Footer() {
                 </div>
 
                 <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
-                    <p>© 2026 LuxeHair Salon. All rights reserved.</p>
+                    <p>© 2026 Tóc Salon. All rights reserved.</p>
                     <div className="flex space-x-6 mt-4 md:mt-0">
                         <Link href="/privacy" className="hover:text-gray-400">Privacy Policy</Link>
                         <Link href="/terms" className="hover:text-gray-400">Terms of Service</Link>

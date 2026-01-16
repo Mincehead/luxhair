@@ -7,11 +7,11 @@ export default function Home() {
       <ParallaxBackground>
         <div className="relative z-10 flex flex-col items-center justify-center min-h-[90vh] text-center px-4 sm:px-6">
           <div className="max-w-4xl mx-auto pt-20">
-            <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold text-white mb-8 tracking-tighter drop-shadow-2xl">
-              Luxe<span className="text-purple-400 font-serif italic">Hair</span>
+            <h1 className="text-6xl sm:text-7xl md:text-9xl font-bold text-white mb-6 tracking-tighter drop-shadow-2xl font-serif">
+              Tóc <span className="text-purple-400 font-light italic">Salon</span>
             </h1>
-            <p className="text-lg sm:text-xl md:text-3xl text-gray-200 shadow-black drop-shadow-md max-w-2xl mx-auto mb-12 leading-relaxed font-light">
-              Elevating Vietnamese hair artistry to a new standard of luxury.
+            <p className="text-2xl sm:text-3xl md:text-5xl text-gray-200 shadow-black drop-shadow-md max-w-2xl mx-auto mb-12 leading-relaxed font-serif italic tracking-wide">
+              "The Art of Đẹp"
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">

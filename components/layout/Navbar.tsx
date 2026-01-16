@@ -39,8 +39,8 @@ export default function Navbar() {
             <div className="relative z-50 container mx-auto px-6 py-4 flex items-center justify-between">
 
                 {/* Logo */}
-                <Link href="/" className="text-2xl font-bold tracking-tighter text-white">
-                    Luxe<span className="text-purple-400 font-serif italic">Hair</span>
+                <Link href="/" className="text-3xl font-serif font-bold tracking-tighter text-white">
+                    Tóc <span className="text-purple-400 italic font-light">Salon</span>
                 </Link>
 
                 {/* Desktop Links */}
