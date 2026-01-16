@@ -17,7 +17,6 @@ export default function ParallaxBackground({
     });
 
     const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     return (
         <div ref={ref} className="relative w-full overflow-hidden min-h-screen bg-neutral-900">
@@ -41,11 +40,9 @@ export default function ParallaxBackground({
             {/* Layer 1: Atmospheric Overlay */}
             <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
 
-            {/* Layer 2: Content */}
+            {/* Layer 2: Content - No Parallax for stability */}
             <div className="relative z-20 container mx-auto px-4 py-20">
-                <motion.div style={{ y: textY }}>
-                    {children}
-                </motion.div>
+                {children}
             </div>
         </div>
     );
