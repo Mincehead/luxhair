@@ -55,7 +55,7 @@ export default function SignupPage() {
                             type="text"
                             value={fullName}
                             onChange={(e) => setFullName(e.target.value)}
-                            className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+                            className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
                             placeholder="Jane Doe"
                         />
                     </div>
@@ -66,7 +66,7 @@ export default function SignupPage() {
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+                            className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
                             placeholder="you@example.com"
                         />
                     </div>
@@ -77,7 +77,7 @@ export default function SignupPage() {
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+                            className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
                             placeholder="••••••••"
                         />
                     </div>
@@ -85,7 +85,7 @@ export default function SignupPage() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full py-3 px-4 bg-purple-600 text-white font-bold rounded-lg hover:bg-purple-700 transition duration-300 disabled:opacity-50"
+                        className="w-full py-3 px-4 bg-gradient-to-r from-amber-200 to-yellow-500 text-black font-bold rounded-lg hover:from-white hover:to-gray-200 transition duration-300 disabled:opacity-50"
                     >
                         {loading ? 'Creating Account...' : 'Sign Up'}
                     </button>
@@ -93,7 +93,7 @@ export default function SignupPage() {
 
                 <div className="mt-8 text-center text-sm text-gray-400">
                     Already have an account?{' '}
-                    <Link href="/login" className="text-purple-400 hover:text-white transition">Sign In</Link>
+                    <Link href="/login" className="text-amber-400 hover:text-white transition">Sign In</Link>
                 </div>
             </GlassPanel>
         </div>
