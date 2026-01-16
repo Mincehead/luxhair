@@ -59,7 +59,7 @@ export default function AdminLoginPage() {
                 <div className="text-center mb-8">
                     <h1 className="text-4xl font-serif font-bold mb-2">
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-700">
-                            Luxe Admin
+                            Tóc Admin
                         </span>
                     </h1>
                     <p className="text-gray-400">Secure Access Portal</p>

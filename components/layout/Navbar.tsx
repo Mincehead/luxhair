@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { Menu, X, ShoppingBag, User } from 'lucide-react';
+import { Menu, X, ShoppingBag, User, Shield } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 
@@ -10,6 +10,7 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [user, setUser] = useState<any>(null);
+    const [role, setRole] = useState<string | null>(null);
     const router = useRouter();
     const supabase = createClient();
 
@@ -17,10 +18,19 @@ export default function Navbar() {
         const handleScroll = () => setScrolled(window.scrollY > 20);
         window.addEventListener('scroll', handleScroll);
 
-        // Check Auth
+        // Check Auth & Role
         const checkUser = async () => {
             const { data: { user } } = await supabase.auth.getUser();
             setUser(user);
+
+            if (user) {
+                const { data: profile } = await supabase
+                    .from('profiles')
+                    .select('role')
+                    .eq('id', user.id)
+                    .single();
+                setRole(profile?.role || null);
+            }
         };
         checkUser();
 
@@ -56,6 +66,12 @@ export default function Navbar() {
 
                 {/* Icons & Auth */}
                 <div className="hidden md:flex items-center space-x-6">
+                    {role === 'admin' && (
+                        <Link href="/admin" className="text-amber-400 hover:text-amber-300 transition" title="Admin Dashboard">
+                            <Shield size={20} />
+                        </Link>
+                    )}
+
                     <button className="text-white hover:text-amber-400 transition">
                         <ShoppingBag size={20} />
                     </button>

@@ -1,8 +1,8 @@
 -- Enable UUID extension
 create extension if not exists "uuid-ossp";
 
--- PROFILES (Safe Creation)
-create table if not exists public.profiles (
+-- PROFILES (Extends auth.users)
+create table public.profiles (
   id uuid references auth.users not null primary key,
   full_name text,
   avatar_url text,
@@ -12,19 +12,12 @@ create table if not exists public.profiles (
 
 -- RLS: Profiles
 alter table public.profiles enable row level security;
-
--- Policies (Drop first to be safe for re-runs)
-drop policy if exists "Public profiles are viewable by everyone" on public.profiles;
 create policy "Public profiles are viewable by everyone" on public.profiles for select using (true);
-
-drop policy if exists "Users can insert their own profile" on public.profiles;
 create policy "Users can insert their own profile" on public.profiles for insert with check (auth.uid() = id);
-
-drop policy if exists "Users can update own profile" on public.profiles;
 create policy "Users can update own profile" on public.profiles for update using (auth.uid() = id);
 
 -- Trigger to handle new user signup
-create or replace function public.handle_new_user() 
+create function public.handle_new_user() 
 returns trigger as $$
 begin
   insert into public.profiles (id, full_name, avatar_url)
@@ -33,8 +26,6 @@ begin
 end;
 $$ language plpgsql security definer;
 
--- Drop trigger first
-drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created
   after insert on auth.users
   for each row execute procedure public.handle_new_user();
