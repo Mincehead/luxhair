@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { GlassPanel } from '@/components/ui/GlassPanel';
-import { ArrowLeft, Calendar, Clock, User, Check, X, CheckCircle, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, User, Check, X, CheckCircle, XCircle, AlertTriangle } from 'lucide-react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 
@@ -96,9 +96,9 @@ export default function AdminBookingDetailPage() {
                     <h1 className="text-3xl font-bold font-serif mb-2">Booking #{booking.id.slice(0, 8)}</h1>
                     <div className="flex items-center gap-3">
                         <span className={`px-3 py-1 rounded-full text-sm font-bold border uppercase tracking-wider ${booking.status === 'confirmed' ? 'text-green-400 bg-green-400/10 border-green-400/20' :
-                                booking.status === 'completed' ? 'text-blue-400 bg-blue-400/10 border-blue-400/20' :
-                                    booking.status === 'cancelled' ? 'text-red-400 bg-red-400/10 border-red-400/20' :
-                                        'text-yellow-400 bg-yellow-400/10 border-yellow-400/20'
+                            booking.status === 'completed' ? 'text-blue-400 bg-blue-400/10 border-blue-400/20' :
+                                booking.status === 'cancelled' ? 'text-red-400 bg-red-400/10 border-red-400/20' :
+                                    'text-yellow-400 bg-yellow-400/10 border-yellow-400/20'
                             }`}>
                             {booking.status}
                         </span>

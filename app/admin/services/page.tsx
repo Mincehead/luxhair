@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { GlassPanel } from '@/components/ui/GlassPanel';
-import { Plus, Edit, Trash, Scissors, Search, AlertCircle } from 'lucide-react';
+import { Plus, Edit, Trash, Scissors, Search, AlertCircle, Clock } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
