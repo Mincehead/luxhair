@@ -10,7 +10,9 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="space-y-4">
                         <Link href="/" className="text-3xl font-serif font-bold tracking-tighter">
-                            Tóc <span className="text-purple-400 italic font-light">Salon</span>
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-700">
+                                Tóc <span className="font-light italic">Salon</span>
+                            </span>
                         </Link>
                         <p className="text-gray-400 text-sm leading-relaxed">
                             "The Art of Đẹp". Redefining elegance through Vietnamese hair artistry.

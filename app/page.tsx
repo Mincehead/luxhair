@@ -7,28 +7,30 @@ export default function Home() {
       <ParallaxBackground>
         <div className="relative z-10 flex flex-col items-center justify-center min-h-[90vh] text-center px-4 sm:px-6">
           <div className="max-w-4xl mx-auto pt-20">
-            <h1 className="text-6xl sm:text-7xl md:text-9xl font-bold text-white mb-6 tracking-tighter drop-shadow-2xl font-serif">
-              Tóc <span className="text-purple-400 font-light italic">Salon</span>
+            <h1 className="text-6xl sm:text-7xl md:text-9xl font-bold mb-6 tracking-tighter drop-shadow-2xl font-serif">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-700 drop-shadow-[0_0_10px_rgba(234,179,8,0.3)]">
+                Tóc <span className="font-light italic">Salon</span>
+              </span>
             </h1>
-            <p className="text-2xl sm:text-3xl md:text-5xl text-gray-200 shadow-black drop-shadow-md max-w-2xl mx-auto mb-12 leading-relaxed font-serif italic tracking-wide">
+            <p className="text-2xl sm:text-3xl md:text-5xl text-gray-300 shadow-black drop-shadow-md max-w-2xl mx-auto mb-12 leading-relaxed font-serif italic tracking-wide">
               "The Art of Đẹp"
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Link href="/bookings" className="px-10 py-4 bg-white text-black font-bold rounded-full hover:bg-purple-100 transition shadow-[0_0_20px_rgba(255,255,255,0.3)] text-lg">
+              <Link href="/bookings" className="px-10 py-4 bg-gradient-to-r from-amber-200 to-yellow-500 text-black font-bold rounded-full hover:from-white hover:to-gray-200 transition shadow-[0_0_20px_rgba(234,179,8,0.4)] text-lg border border-yellow-500/50">
                 Book Your Experience
               </Link>
-              <Link href="/shop" className="px-10 py-4 bg-transparent border border-white text-white font-bold rounded-full hover:bg-white hover:text-black transition shadow-[0_0_20px_rgba(255,255,255,0.1)] text-lg">
+              <Link href="/shop" className="px-10 py-4 bg-black/40 backdrop-blur-md border border-amber-500/50 text-amber-100 font-bold rounded-full hover:bg-amber-900/20 hover:border-amber-400 transition shadow-[0_0_20px_rgba(234,179,8,0.1)] text-lg">
                 View Collection
               </Link>
             </div>
 
-            <div className="mt-16 flex flex-wrap justify-center gap-8 text-gray-400 font-light tracking-wide">
-              <Link href="/about" className="hover:text-white transition-colors border-b border-transparent hover:border-white">Our Story</Link>
-              <span className="hidden sm:inline">•</span>
-              <Link href="/gallery" className="hover:text-white transition-colors border-b border-transparent hover:border-white">Gallery</Link>
-              <span className="hidden sm:inline">•</span>
-              <Link href="/services" className="hover:text-white transition-colors border-b border-transparent hover:border-white">Services</Link>
+            <div className="mt-16 flex flex-wrap justify-center gap-8 text-amber-100/60 font-light tracking-wide">
+              <Link href="/about" className="hover:text-amber-200 transition-colors border-b border-transparent hover:border-amber-200/50">Our Story</Link>
+              <span className="hidden sm:inline text-amber-500/50">•</span>
+              <Link href="/gallery" className="hover:text-amber-200 transition-colors border-b border-transparent hover:border-amber-200/50">Gallery</Link>
+              <span className="hidden sm:inline text-amber-500/50">•</span>
+              <Link href="/services" className="hover:text-amber-200 transition-colors border-b border-transparent hover:border-amber-200/50">Services</Link>
             </div>
           </div>
         </div>

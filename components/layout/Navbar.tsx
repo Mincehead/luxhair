@@ -39,8 +39,10 @@ export default function Navbar() {
             <div className="relative z-50 container mx-auto px-6 py-4 flex items-center justify-between">
 
                 {/* Logo */}
-                <Link href="/" className="text-3xl font-serif font-bold tracking-tighter text-white">
-                    Tóc <span className="text-purple-400 italic font-light">Salon</span>
+                <Link href="/" className="text-3xl font-serif font-bold tracking-tighter">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-700">
+                        Tóc <span className="font-light italic">Salon</span>
+                    </span>
                 </Link>
 
                 {/* Desktop Links */}
@@ -54,13 +56,13 @@ export default function Navbar() {
 
                 {/* Icons & Auth */}
                 <div className="hidden md:flex items-center space-x-6">
-                    <button className="text-white hover:text-purple-400 transition">
+                    <button className="text-white hover:text-amber-400 transition">
                         <ShoppingBag size={20} />
                     </button>
 
                     {user ? (
                         <div className="flex items-center space-x-4">
-                            <Link href="/profile" className="text-white hover:text-purple-400">
+                            <Link href="/profile" className="text-white hover:text-amber-400">
                                 <User size={20} />
                             </Link>
                             <button onClick={handleSignOut} className="text-sm text-gray-400 hover:text-white">
@@ -117,7 +119,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
 
 function MobileLink({ href, onClick, children }: { href: string; onClick: () => void; children: React.ReactNode }) {
     return (
-        <Link href={href} onClick={onClick} className="text-2xl font-bold text-white hover:text-purple-400 transition-colors">
+        <Link href={href} onClick={onClick} className="text-2xl font-bold text-white hover:text-amber-400 transition-colors">
             {children}
         </Link>
     );
