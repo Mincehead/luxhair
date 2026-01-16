@@ -23,27 +23,27 @@ export default function Footer() {
                     <div>
                         <h4 className="font-bold mb-6">Explore</h4>
                         <ul className="space-y-3 text-sm text-gray-400">
-                            <li><Link href="/services" className="hover:text-purple-400 transition">Services Menu</Link></li>
-                            <li><Link href="/shop" className="hover:text-purple-400 transition">Shop Products</Link></li>
-                            <li><Link href="/book" className="hover:text-purple-400 transition">Book Appointment</Link></li>
-                            <li><Link href="/gallery" className="hover:text-purple-400 transition">Style Gallery</Link></li>
+                            <li><Link href="/services" className="hover:text-amber-400 transition">Services Menu</Link></li>
+                            <li><Link href="/shop" className="hover:text-amber-400 transition">Shop Products</Link></li>
+                            <li><Link href="/book" className="hover:text-amber-400 transition">Book Appointment</Link></li>
+                            <li><Link href="/gallery" className="hover:text-amber-400 transition">Style Gallery</Link></li>
                         </ul>
                     </div>
 
                     {/* Contact */}
                     <div>
-                        <h4 className="font-bold mb-6">Contact</h4>
-                        <ul className="space-y-4 text-sm text-gray-400">
-                            <li className="flex items-center space-x-3">
-                                <MapPin size={16} className="text-purple-400" />
-                                <span>123 Luxury Lane, Beverly Hills, CA</span>
+                        <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm">Contact</h4>
+                        <ul className="space-y-4 text-gray-400 text-sm">
+                            <li className="flex items-center gap-3">
+                                <MapPin size={16} className="text-amber-400" />
+                                <span>123 Elite Blvd, Beverly Hills, CA</span>
                             </li>
-                            <li className="flex items-center space-x-3">
-                                <Phone size={16} className="text-purple-400" />
+                            <li className="flex items-center gap-3">
+                                <Phone size={16} className="text-amber-400" />
                                 <span>+1 (555) 123-4567</span>
                             </li>
-                            <li className="flex items-center space-x-3">
-                                <Mail size={16} className="text-purple-400" />
+                            <li className="flex items-center gap-3">
+                                <Mail size={16} className="text-amber-400" />
                                 <span>concierge@luxehair.com</span>
                             </li>
                         </ul>
@@ -74,7 +74,7 @@ export default function Footer() {
 
 function SocialIcon({ icon }: { icon: React.ReactNode }) {
     return (
-        <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-purple-500 hover:text-white transition-all duration-300 border border-white/10">
+        <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-all duration-300 border border-white/10">
             {icon}
         </a>
     );

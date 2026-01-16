@@ -9,7 +9,7 @@ export default function AboutSection() {
                         Our Philosophy
                     </h2>
                     <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
-                        Welcome to <span className="text-purple-400 font-semibold">LuxeHair</span>, where tradition meets modern artistry.
+                        Welcome to <span className="text-amber-400 font-semibold">Tóc Salon</span>, where tradition meets modern artistry.
                         Inspired by the elegance and precision of high-end Vietnamese styling, we are dedicated to transforming your look with
                         impeccable techniques and premium care. Our salon is a sanctuary of beauty, designed to provide you with a relaxing
                         and luxurious experience from the moment you step in. We believe in dynamic realism—enhancing your natural beauty

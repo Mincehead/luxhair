@@ -17,7 +17,7 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Link href="/bookings" className="px-10 py-4 bg-gradient-to-r from-amber-200 to-yellow-500 text-black font-bold rounded-full hover:from-white hover:to-gray-200 transition shadow-[0_0_20px_rgba(234,179,8,0.4)] text-lg border border-yellow-500/50">
+              <Link href="/bookings" className="px-10 py-4 bg-black/40 backdrop-blur-md border border-amber-500/50 text-amber-100 font-bold rounded-full hover:bg-amber-900/20 hover:border-amber-400 transition shadow-[0_0_20px_rgba(234,179,8,0.1)] text-lg">
                 Book Your Experience
               </Link>
               <Link href="/shop" className="px-10 py-4 bg-black/40 backdrop-blur-md border border-amber-500/50 text-amber-100 font-bold rounded-full hover:bg-amber-900/20 hover:border-amber-400 transition shadow-[0_0_20px_rgba(234,179,8,0.1)] text-lg">

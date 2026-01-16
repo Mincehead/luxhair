@@ -41,7 +41,7 @@ export default function ShopPreview() {
                                 />
                             </div>
                             <h3 className="text-xl font-bold text-white mb-2">{product.name}</h3>
-                            <p className="text-purple-300 font-semibold text-lg mb-4">${product.price}</p>
+                            <p className="text-amber-300 font-semibold text-lg mb-4">${product.price}</p>
                             <button
                                 onClick={() => handleAddToCart(product)}
                                 className="w-full py-2 border border-white/30 text-white rounded hover:bg-white hover:text-black transition"
@@ -53,7 +53,7 @@ export default function ShopPreview() {
                 </div>
 
                 <div className="text-center mt-12">
-                    <Link href="/shop" className="inline-block px-10 py-3 bg-white text-black font-bold rounded-full hover:bg-purple-100 transition shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                    <Link href="/shop" className="inline-block px-10 py-3 bg-white text-black font-bold rounded-full hover:bg-amber-100 transition shadow-[0_0_20px_rgba(255,255,255,0.2)]">
                         View All Products
                     </Link>
                 </div>

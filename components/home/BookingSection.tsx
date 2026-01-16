@@ -19,7 +19,7 @@ export default function BookingSection() {
                     {/* Left: Info */}
                     <div className="lg:w-1/2 text-left">
                         <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                            Book Your <br /> <span className="text-purple-400">Transformation</span>
+                            Book Your <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-500">Transformation</span>
                         </h2>
                         <p className="text-gray-300 text-lg mb-8 leading-relaxed">
                             Select your preferred date and time to secure a spot with our styling experts.
@@ -28,13 +28,13 @@ export default function BookingSection() {
                         </p>
                         <ul className="space-y-4 text-gray-300">
                             <li className="flex items-center gap-3">
-                                <span className="w-2 h-2 bg-purple-400 rounded-full" /> Personal consultation included
+                                <span className="w-2 h-2 bg-amber-400 rounded-full" /> Personal consultation included
                             </li>
                             <li className="flex items-center gap-3">
-                                <span className="w-2 h-2 bg-purple-400 rounded-full" /> Premium product application
+                                <span className="w-2 h-2 bg-amber-400 rounded-full" /> Premium product application
                             </li>
                             <li className="flex items-center gap-3">
-                                <span className="w-2 h-2 bg-purple-400 rounded-full" /> 100% Satisfaction guarantee
+                                <span className="w-2 h-2 bg-amber-400 rounded-full" /> 100% Satisfaction guarantee
                             </li>
                         </ul>
                     </div>
@@ -51,13 +51,13 @@ export default function BookingSection() {
                                     <div className="grid grid-cols-2 gap-4">
                                         <button
                                             onClick={() => setServiceType('cut')}
-                                            className={`py-3 rounded-lg border transition ${serviceType === 'cut' ? 'bg-purple-500/20 border-purple-500 text-purple-200' : 'border-white/10 text-gray-400 hover:border-white/30'}`}
+                                            className={`py-3 rounded-lg border transition ${serviceType === 'cut' ? 'bg-amber-500/20 border-amber-500 text-amber-200' : 'border-white/10 text-gray-400 hover:border-white/30'}`}
                                         >
                                             Hair Cut & Style
                                         </button>
                                         <button
                                             onClick={() => setServiceType('color')}
-                                            className={`py-3 rounded-lg border transition ${serviceType === 'color' ? 'bg-purple-500/20 border-purple-500 text-purple-200' : 'border-white/10 text-gray-400 hover:border-white/30'}`}
+                                            className={`py-3 rounded-lg border transition ${serviceType === 'color' ? 'bg-amber-500/20 border-amber-500 text-amber-200' : 'border-white/10 text-gray-400 hover:border-white/30'}`}
                                         >
                                             Color Treatment
                                         </button>
@@ -69,7 +69,7 @@ export default function BookingSection() {
                                     <label className="block text-gray-300 mb-2 font-medium">Select Date</label>
                                     <input
                                         type="date"
-                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition"
+                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition"
                                         onChange={(e) => setSelectedDate(e.target.value)}
                                     />
                                 </div>
@@ -82,7 +82,7 @@ export default function BookingSection() {
                                             <button
                                                 key={time}
                                                 onClick={() => setSelectedTime(time)}
-                                                className={`text-sm py-2 rounded border transition ${selectedTime === time ? 'bg-purple-500 text-white border-purple-500' : 'border-white/10 text-gray-400 hover:border-white/30'}`}
+                                                className={`text-sm py-2 rounded border transition ${selectedTime === time ? 'bg-amber-500 text-black border-amber-500 font-semibold' : 'border-white/10 text-gray-400 hover:border-white/30'}`}
                                             >
                                                 {time}
                                             </button>
@@ -90,7 +90,7 @@ export default function BookingSection() {
                                     </div>
                                 </div>
 
-                                <button className="w-full bg-white text-black font-bold py-4 rounded-lg hover:bg-purple-100 transition mt-4 shadow-lg">
+                                <button className="w-full bg-gradient-to-r from-amber-200 to-yellow-500 text-black font-bold py-4 rounded-lg hover:from-white hover:to-gray-200 transition mt-4 shadow-lg border border-yellow-500/50">
                                     Confirm Booking
                                 </button>
                             </div>
