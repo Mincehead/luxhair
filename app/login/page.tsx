@@ -14,6 +14,8 @@ export default function LoginPage() {
     const router = useRouter();
     const supabase = createClient();
 
+
+
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
@@ -30,8 +32,9 @@ export default function LoginPage() {
                 setErrorMsg(error.message);
                 setLoading(false);
             } else {
-                router.push('/');
-                router.refresh();
+                // Force a hard reload to ensure Supabase session cookies are properly
+                // recognized by the server and middleware
+                window.location.href = '/';
             }
         } catch (err: any) {
             console.error('Unexpected login error:', err);
@@ -39,6 +42,7 @@ export default function LoginPage() {
             setLoading(false);
         }
     };
+
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?q=80&w=2574&auto=format&fit=crop')] bg-cover bg-center">
