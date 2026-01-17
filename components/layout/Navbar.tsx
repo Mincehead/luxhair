@@ -21,6 +21,7 @@ export default function Navbar() {
         // Check Auth & Role
         const checkUser = async () => {
             const { data: { user } } = await supabase.auth.getUser();
+            console.log('Navbar mounted, checking user:', user?.id);
             setUser(user);
             if (user) fetchRole(user.id);
         };
@@ -37,6 +38,7 @@ export default function Navbar() {
         // Initial Session Check
         const initSession = async () => {
             const { data: { session } } = await supabase.auth.getSession();
+            console.log('Navbar session check:', session?.user?.id);
             setUser(session?.user ?? null);
             if (session?.user) {
                 fetchRole(session.user.id);
@@ -45,7 +47,8 @@ export default function Navbar() {
         initSession();
 
         // Listen for auth changes
-        const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
+        const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+            console.log('Navbar auth change event:', event, ' User:', session?.user?.id);
             setUser(session?.user ?? null);
             if (session?.user) {
                 fetchRole(session.user.id);

@@ -20,9 +20,10 @@ export default function LoginPage() {
         e.preventDefault();
         setLoading(true);
         setErrorMsg(null);
+        console.log('Attempting login with email:', email);
 
         try {
-            const { error } = await supabase.auth.signInWithPassword({
+            const { error, data } = await supabase.auth.signInWithPassword({
                 email,
                 password,
             });
@@ -32,6 +33,8 @@ export default function LoginPage() {
                 setErrorMsg(error.message);
                 setLoading(false);
             } else {
+                console.log('Login successful, user:', data.user?.id);
+                console.log('Redirecting to home via window.location.href...');
                 // Force a hard reload to ensure Supabase session cookies are properly
                 // recognized by the server and middleware
                 window.location.href = '/';
@@ -52,6 +55,7 @@ export default function LoginPage() {
                 <div className="text-center mb-8">
                     <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
                     <p className="text-gray-300">Sign in to access your bookings and profile</p>
+                    <p className="text-xs text-gray-500 mt-2">System v2.1 (Debug Active)</p>
                 </div>
 
                 {errorMsg && (
@@ -62,6 +66,7 @@ export default function LoginPage() {
 
                 <button
                     onClick={() => {
+                        console.log('Initiating Google Sign-In...');
                         const supabase = createClient();
                         supabase.auth.signInWithOAuth({
                             provider: 'google',
