@@ -30,10 +30,8 @@ export default function LoginPage() {
                 setErrorMsg(error.message);
                 setLoading(false);
             } else {
-                // Force hard reload to update Navbar state (with delay for cookie sync)
-                setTimeout(() => {
-                    window.location.href = '/';
-                }, 500);
+                router.push('/');
+                router.refresh();
             }
         } catch (err: any) {
             console.error('Unexpected login error:', err);
