@@ -22,19 +22,34 @@ export default function Navbar() {
         const checkUser = async () => {
             const { data: { user } } = await supabase.auth.getUser();
             setUser(user);
-
-            if (user) {
-                const { data: profile } = await supabase
-                    .from('profiles')
-                    .select('role')
-                    .eq('id', user.id)
-                    .single();
-                setRole(profile?.role || null);
-            }
+            if (user) fetchRole(user.id);
         };
+
+        const fetchRole = async (userId: string) => {
+            const { data: profile } = await supabase
+                .from('profiles')
+                .select('role')
+                .eq('id', userId)
+                .single();
+            setRole(profile?.role || null);
+        };
+
         checkUser();
 
-        return () => window.removeEventListener('scroll', handleScroll);
+        // Listen for auth changes
+        const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
+            setUser(session?.user ?? null);
+            if (session?.user) {
+                fetchRole(session.user.id);
+            } else {
+                setRole(null);
+            }
+        });
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            subscription.unsubscribe();
+        };
     }, [supabase]);
 
     const handleSignOut = async () => {
