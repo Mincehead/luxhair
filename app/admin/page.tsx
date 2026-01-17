@@ -62,7 +62,36 @@ export default function AdminDashboard() {
 
     return (
         <div className="space-y-8">
-            <h1 className="text-3xl font-bold">Dashboard</h1>
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <h1 className="text-3xl font-bold">Dashboard</h1>
+                <button
+                    onClick={async () => {
+                        const { data, error } = await supabase.storage.createBucket('products', {
+                            public: true,
+                            allowedMimeTypes: ['image/*'],
+                            fileSizeLimit: 5242880
+                        });
+                        if (error) {
+                            if (error.message.includes('already exists')) {
+                                const { error: updateError } = await supabase.storage.updateBucket('products', {
+                                    public: true,
+                                    allowedMimeTypes: ['image/*'],
+                                    fileSizeLimit: 5242880
+                                });
+                                if (updateError) alert('Failed to update bucket: ' + updateError.message);
+                                else alert('Storage fixed! Bucket is now Public. Try uploading again.');
+                            } else {
+                                alert('Error: ' + error.message);
+                            }
+                        } else {
+                            alert('Storage Bucket Created & Public! Try uploading again.');
+                        }
+                    }}
+                    className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-sm font-bold transition flex items-center gap-2"
+                >
+                    <CheckCircle size={16} /> Auto-Fix Storage
+                </button>
+            </div>
 
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -102,8 +131,8 @@ export default function AdminDashboard() {
                                         <div className="font-bold text-white flex items-center gap-2">
                                             {booking.profiles?.full_name || 'Guest'}
                                             <span className={`text-xs px-2 py-0.5 rounded-full uppercase ${booking.status === 'pending' ? 'bg-yellow-500/20 text-yellow-300' :
-                                                    booking.status === 'confirmed' ? 'bg-green-500/20 text-green-300' :
-                                                        'bg-red-500/20 text-red-300'
+                                                booking.status === 'confirmed' ? 'bg-green-500/20 text-green-300' :
+                                                    'bg-red-500/20 text-red-300'
                                                 }`}>{booking.status}</span>
                                         </div>
                                         <div className="text-sm text-gray-300">{booking.services?.name} (${booking.services?.price})</div>
