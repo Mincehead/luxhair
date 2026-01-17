@@ -127,6 +127,14 @@ export default function Navbar() {
                     <MobileLink href="/bookings" onClick={() => setIsOpen(false)}>Book Now</MobileLink>
                     <MobileLink href="/about" onClick={() => setIsOpen(false)}>Our Story</MobileLink>
 
+                    {role === 'admin' && (
+                        <MobileLink href="/admin" onClick={() => setIsOpen(false)}>
+                            <span className="text-amber-400 flex items-center gap-2">
+                                <Shield size={24} /> Admin Dashboard
+                            </span>
+                        </MobileLink>
+                    )}
+
                     <div className="w-16 h-1 bg-white/10 rounded-full my-4" />
 
                     {user ? (
