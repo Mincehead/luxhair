@@ -10,23 +10,33 @@ export default function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
+    const [errorMsg, setErrorMsg] = useState<string | null>(null);
     const router = useRouter();
     const supabase = createClient();
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
-        const { error } = await supabase.auth.signInWithPassword({
-            email,
-            password,
-        });
-        setLoading(false);
+        setErrorMsg(null);
 
-        if (error) {
-            alert(error.message);
-        } else {
-            router.push('/');
-            router.refresh();
+        try {
+            const { error } = await supabase.auth.signInWithPassword({
+                email,
+                password,
+            });
+
+            if (error) {
+                console.error('Login error:', error);
+                setErrorMsg(error.message);
+                setLoading(false);
+            } else {
+                router.push('/');
+                router.refresh();
+            }
+        } catch (err: any) {
+            console.error('Unexpected login error:', err);
+            setErrorMsg(err.message || 'An unexpected error occurred');
+            setLoading(false);
         }
     };
 
@@ -39,6 +49,12 @@ export default function LoginPage() {
                     <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
                     <p className="text-gray-300">Sign in to access your bookings and profile</p>
                 </div>
+
+                {errorMsg && (
+                    <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-200 text-sm text-center">
+                        {errorMsg}
+                    </div>
+                )}
 
                 <button
                     onClick={() => {
