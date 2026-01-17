@@ -74,7 +74,8 @@ export default function AdminBookingDetailPage() {
             .eq('id', booking.id);
 
         if (error) {
-            alert('Failed to update status');
+            console.error('Update failed:', error);
+            alert(`Failed to update status: ${error.message || 'Permission denied'}`);
         } else {
             setBooking({ ...booking, status: newStatus as any });
             router.refresh();

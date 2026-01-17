@@ -10,6 +10,7 @@ import Link from 'next/link';
 export default function ProfilePage() {
     const [user, setUser] = useState<any>(null);
     const [profile, setProfile] = useState<any>(null);
+    const [bookings, setBookings] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const router = useRouter();
     const supabase = createClient();
@@ -32,6 +33,15 @@ export default function ProfilePage() {
                 .single();
 
             setProfile(profile);
+
+            // Fetch bookings
+            const { data: bookingsData } = await supabase
+                .from('bookings')
+                .select('*, services(name, duration_min)')
+                .eq('user_id', user.id)
+                .order('start_time', { ascending: true });
+
+            setBookings(bookingsData || []);
             setLoading(false);
         };
 
@@ -94,9 +104,29 @@ export default function ProfilePage() {
                         )}
 
                         <div className="p-4 bg-white/5 rounded-xl border border-white/5">
-                            <h3 className="font-bold text-white mb-1">My Bookings</h3>
-                            <p className="text-sm text-gray-400 mb-4">You have no upcoming appointments.</p>
-                            <Link href="/bookings" className="text-sm text-amber-400 hover:text-amber-300">Book an Appointment →</Link>
+                            <h3 className="font-bold text-white mb-3">My Bookings</h3>
+
+                            {bookings.length === 0 ? (
+                                <p className="text-sm text-gray-400 mb-4">You have no upcoming appointments.</p>
+                            ) : (
+                                <div className="space-y-3 mb-4">
+                                    {bookings.map((booking) => (
+                                        <div key={booking.id} className="p-3 bg-white/5 rounded-lg border border-white/10 flex justify-between items-center">
+                                            <div>
+                                                <div className="font-semibold text-white">{booking.services?.name || 'Service'}</div>
+                                                <div className="text-xs text-gray-400">
+                                                    {new Date(booking.start_time).toLocaleDateString()} at {new Date(booking.start_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                                </div>
+                                            </div>
+                                            <div className="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                                                {booking.status}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
+                            <Link href="/bookings" className="text-sm text-amber-400 hover:text-amber-300">Book New Appointment →</Link>
                         </div>
 
                         <button
