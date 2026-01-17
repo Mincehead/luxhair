@@ -15,11 +15,7 @@ export async function createClient() {
                 setAll(cookiesToSet) {
                     try {
                         cookiesToSet.forEach(({ name, value, options }) =>
-                            cookieStore.set(name, value, {
-                                ...options,
-                                sameSite: 'lax',
-                                secure: true,
-                            })
+                            cookieStore.set(name, value, options)
                         )
                     } catch {
                         // The `setAll` method was called from a Server Component.
@@ -27,14 +23,6 @@ export async function createClient() {
                         // user sessions.
                     }
                 },
-            },
-            cookieOptions: {
-                name: 'sb-luxhair-auth-token',
-                maxAge: 60 * 60 * 24 * 7, // 7 days
-                domain: '',
-                path: '/',
-                sameSite: 'lax',
-                secure: process.env.NODE_ENV === 'production',
             },
         }
     )
