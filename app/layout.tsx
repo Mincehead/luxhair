@@ -5,6 +5,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import StructuredData from "@/components/seo/StructuredData";
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: "Tóc Salon | The Art of Đẹp",
   description: "Elite Vietnamese hair artistry. Experience the art of beauty.",

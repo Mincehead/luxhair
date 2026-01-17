@@ -34,7 +34,15 @@ export default function Navbar() {
             setRole(profile?.role || null);
         };
 
-        checkUser();
+        // Initial Session Check
+        const initSession = async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            setUser(session?.user ?? null);
+            if (session?.user) {
+                fetchRole(session.user.id);
+            }
+        };
+        initSession();
 
         // Listen for auth changes
         const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
