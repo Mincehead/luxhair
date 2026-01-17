@@ -30,8 +30,8 @@ export default function LoginPage() {
                 setErrorMsg(error.message);
                 setLoading(false);
             } else {
-                router.push('/');
-                router.refresh();
+                // Force hard reload to update Navbar state
+                window.location.href = '/';
             }
         } catch (err: any) {
             console.error('Unexpected login error:', err);
