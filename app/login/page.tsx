@@ -34,10 +34,14 @@ export default function LoginPage() {
                 setLoading(false);
             } else {
                 console.log('Login successful, user:', data.user?.id);
-                console.log('Redirecting to home via window.location.href...');
-                // Force a hard reload to ensure Supabase session cookies are properly
-                // recognized by the server and middleware
-                window.location.href = '/';
+                console.log('Setting auth cookie and redirecting...');
+
+                // Add a small delay to ensure the browser has time to persist the cookie
+                // before the page reloads. This is often needed on mobile devices.
+                setTimeout(() => {
+                    const timestamp = new Date().getTime();
+                    window.location.href = `/?refresh=${timestamp}`;
+                }, 500);
             }
         } catch (err: any) {
             console.error('Unexpected login error:', err);
@@ -55,7 +59,7 @@ export default function LoginPage() {
                 <div className="text-center mb-8">
                     <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
                     <p className="text-gray-300">Sign in to access your bookings and profile</p>
-                    <p className="text-xs text-gray-500 mt-2">System v2.1 (Debug Active)</p>
+                    <p className="text-xs text-amber-500 mt-2">System v2.2 (Mobile Fix)</p>
                 </div>
 
                 {errorMsg && (
