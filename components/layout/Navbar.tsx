@@ -4,8 +4,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Menu, X, ShoppingBag, User, Shield } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
-import { useRef } from 'react'; // Optimization
-import { usePathname, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +12,6 @@ export default function Navbar() {
     const [user, setUser] = useState<any>(null);
     const [role, setRole] = useState<string | null>(null);
     const router = useRouter();
-    const pathname = usePathname();
     const supabase = createClient();
 
     useEffect(() => {
@@ -61,24 +59,6 @@ export default function Navbar() {
             subscription.unsubscribe();
         };
     }, [supabase]);
-
-    // Force re-check on route change to handle redirects
-    useEffect(() => {
-        const recheck = async () => {
-            const { data: { session } } = await supabase.auth.getSession();
-            setUser(session?.user ?? null);
-            if (session?.user) {
-                const { data: profile } = await supabase
-                    .from('profiles')
-                    .select('role')
-                    .eq('id', session.user.id)
-                    .single();
-                setRole(profile?.role || null);
-            }
-        };
-        recheck();
-        setIsOpen(false); // Auto-close mobile menu on route change
-    }, [pathname, supabase]);
 
     const handleSignOut = async () => {
         await supabase.auth.signOut();
