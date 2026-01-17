@@ -150,6 +150,10 @@ export default function Navbar() {
                     ) : (
                         <Link href="/login" onClick={() => setIsOpen(false)} className="text-xl text-purple-400 font-bold">Sign In</Link>
                     )}
+                    {/* DEBUG INFO */}
+                    <div className="mt-4 p-2 bg-black/50 rounded text-[10px] text-gray-500 font-mono text-center w-full break-all">
+                        Session: {user ? 'Active' : 'None'} | Role: {role || 'None'} | ID: {user?.id?.slice(0, 4) || 'N/A'}
+                    </div>
                 </div>
             )}
         </nav>
