@@ -39,8 +39,13 @@ export default function AdminLoginPage() {
                 throw new Error('Unauthorized: Access restricted to administrators.');
             }
 
-            router.push('/admin');
-            router.refresh();
+            // Force a hard reload to ensure Supabase session cookies are properly
+            // recognized by the server and middleware
+            console.log('Admin login successful. Redirecting...');
+            setTimeout(() => {
+                const timestamp = new Date().getTime();
+                window.location.href = `/admin?refresh=${timestamp}`;
+            }, 500);
         } catch (error: any) {
             setError(error.message || 'Failed to sign in');
             setLoading(false);
