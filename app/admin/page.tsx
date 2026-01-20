@@ -15,6 +15,8 @@ import {
     Line
 } from 'recharts';
 import { Loader2, CheckCircle, XCircle } from 'lucide-react';
+import OpeningHoursManager from '@/components/admin/OpeningHoursManager';
+import StaffManager from '@/components/admin/StaffManager';
 
 export default function AdminDashboard() {
     const [bookings, setBookings] = useState<any[]>([]);
@@ -26,7 +28,7 @@ export default function AdminDashboard() {
             .from('bookings')
             .select(`
                 *,
-                profiles:user_id (full_name, email),
+                profiles:user_id (full_name),
                 services:service_id (name, price)
             `)
             .order('created_at', { ascending: false });
@@ -134,6 +136,18 @@ export default function AdminDashboard() {
                     )}
                 </GlassPanel>
             </div>
+
+            {/* Opening Hours Management */}
+            <GlassPanel className="p-6">
+                <h2 className="text-xl font-semibold mb-6">Salon Opening Hours</h2>
+                <OpeningHoursManager />
+            </GlassPanel>
+
+            {/* Staff Management */}
+            <GlassPanel className="p-6">
+                <h2 className="text-xl font-semibold mb-6">Staff Management</h2>
+                <StaffManager />
+            </GlassPanel>
         </div>
     );
 }

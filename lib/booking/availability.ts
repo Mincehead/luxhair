@@ -13,7 +13,7 @@ export interface ExistingBooking {
 
 const SHOP_OPEN_HOUR = 9;
 const SHOP_CLOSE_HOUR = 17; // 5 PM
-const SLOT_INTERVAL_MINUTES = 30;
+const SLOT_INTERVAL_MINUTES = 15;
 
 /**
  * Generates available time slots for a given date, service duration, and existing bookings.

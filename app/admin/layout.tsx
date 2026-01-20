@@ -41,6 +41,7 @@ export default async function AdminLayout({
                     <NavLink href="/admin/bookings">Bookings</NavLink>
                     <NavLink href="/admin/services">Services</NavLink>
                     <NavLink href="/admin/products">Products</NavLink>
+                    <NavLink href="/admin/hours">Hours</NavLink>
                 </nav>
             </aside>
 
@@ -54,6 +55,7 @@ export default async function AdminLayout({
                     <NavLink href="/admin/bookings">Bookings</NavLink>
                     <NavLink href="/admin/services">Services</NavLink>
                     <NavLink href="/admin/products">Products</NavLink>
+                    <NavLink href="/admin/hours">Hours</NavLink>
                 </nav>
             </div>
 
