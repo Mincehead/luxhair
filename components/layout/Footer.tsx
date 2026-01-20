@@ -27,6 +27,8 @@ export default function Footer() {
                             <li><Link href="/shop" className="hover:text-amber-400 transition">Shop Products</Link></li>
                             <li><Link href="/bookings" className="hover:text-amber-400 transition">Book Appointment</Link></li>
                             <li><Link href="/gallery" className="hover:text-amber-400 transition">Style Gallery</Link></li>
+                            <li><Link href="/privacy" className="hover:text-amber-400 transition">Privacy Policy</Link></li>
+                            <li><Link href="/terms" className="hover:text-amber-400 transition">Terms of Service</Link></li>
                         </ul>
                     </div>
 
@@ -60,7 +62,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
+                <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
                     <p>© 2026 Tóc Salon. All rights reserved.</p>
                     <div className="flex space-x-6 mt-4 md:mt-0">
                         <Link href="/privacy" className="hover:text-gray-400">Privacy Policy</Link>

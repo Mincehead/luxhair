@@ -4,7 +4,7 @@
 UPDATE public.profiles
 SET role = 'admin'
 WHERE id = (
-  SELECT id FROM auth.users WHERE email = 'your_email@example.com'
+  SELECT id FROM auth.users WHERE email = 'mick_gallagher@hotmail.com'
 );
 
 -- Verify the change
